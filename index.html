@@ -79,10 +79,17 @@
         <p id="botStatusDetail">Offline</p>
     </div>
 </article>
-      <article class="status-card reveal-on-scroll">
-        <span class="live-dot"></span>
-        <div><strong>Command System</strong><p>Offline</p></div>
-      </article>
+
+         <div class="status-grid">
+          <article class="status-card reveal-on-scroll">
+            <span id=""botStatusDot" class="live-dot status-online"></span>
+
+            <div>
+              <strong id="botStatusText">Command Search</strong>
+              <p id="botStatusDetail">Online</p>
+            </div>
+          </article>
+         </div>
 
       <article class="status-card reveal-on-scroll">
         <span class="live-dot"></span>
@@ -143,6 +150,23 @@
     <button type="button" class="copy-btn" data-copy="/ping">Copy Example</button>
   </div>
 </details>
+
+<details class="command-card" data-category="utility" data-search="/invite">
+  <summary>
+    <div>
+      <div class="command-name">/invite</div>
+      <div class="command-desc">Get the invite link for motion.</div>
+    </div>
+    <span class="category-pill">Utility</span>
+  </summary>
+  <div class="command-body">
+    <div class="detail"><span>Usage</span><code>/invite</code></div>    
+    <div class="detail"><span>Permission</span><code>Everyone</code></div>
+    <div class="detail wide"><span>Example</span><code>/invite</code></div>
+    <button type="button" class="copy-btn" data-copy="/invite">Copy Example</button>
+  </div>
+</details>
+
 
 <details class="command-card" data-category="utility" data-search="/serverinfo utility view detailed information about the current server. /serverinfo everyone /serverinfo">
   <summary>
@@ -656,67 +680,102 @@
 
 <section class="section" id="changelog">
   <div class="wrap">
+
     <div class="section-head">
-      <h2>Motion Changelog</h2>
-      <p>Search releases and filter updates by type.</p>
+      <h2>Changelog</h2>
+      <p>View the latest updates, improvements, and fixes for Motion Services.</p>
     </div>
 
-    <div class="search-shell">
-      <div class="changelog-search">
-        <input id="updateSearch" class="search" type="search"
-          placeholder="Search updates, versions, fixes..." autocomplete="off">
-        <button id="clearUpdates" class="clear-btn" type="button">Clear</button>
-      </div>
+    <div class="changelog-search">
+      <input
+        type="text"
+        id="changelogSearch"
+        class="search"
+        placeholder="Search changelog..."
+      >
 
-      <div class="filters" id="updateFilters">
-        <button class="filter-btn active" data-update-filter="all" type="button">All</button>
-        <button class="filter-btn" data-update-filter="new" type="button">New</button>
-        <button class="filter-btn" data-update-filter="improved" type="button">Improved</button>
-        <button class="filter-btn" data-update-filter="fixed" type="button">Fixed</button>
-        <button class="filter-btn" data-update-filter="major" type="button">Major</button>
-        <button class="filter-btn" data-update-filter="removed" type="button">Removed</button>
-      </div>
-
-      <div class="result-line">
-        <span id="updateCount">3 releases</span>
-        <span>Latest first</span>
-      </div>
+      <button id="clearChangelogSearch" class="clear-btn">
+        Clear
+      </button>
     </div>
 
+    <div class="release-list">
 
-
-
-   
-
-      <article class="release-card"
-        data-search="2.1.0 july 8 2026 website launch invite premium responsive dark green design"
-        data-types="major new">
+      <!-- VERSION 2.1.1 -->
+      <article
+        class="release-card"
+        data-search="2.1.1 july 16 2026 fixed status cards"
+        data-type="fixed"
+      >
         <div class="release-top">
           <div>
-            <span class="release-version">Version 2.1.0</span>
-            <h3>Website Launch</h3>
+            <span class="release-version">Version 2.1.1</span>
+            <h3>Fixed Status Cards</h3>
           </div>
-          <span class="release-date">July 8, 2026</span>
+
+          <span class="release-date">July 16, 2026</span>
         </div>
 
         <ul class="update-list">
-          <li><span class="update-badge major">MAJOR</span><span>Motion Services website launched</span></li>
-          <li><span class="update-badge new">NEW</span><span>Invite Motion call-to-action</span></li>
-          <li><span class="update-badge new">NEW</span><span>Free and Premium plan preview</span></li>
-          <li><span class="update-badge new">NEW</span><span>Responsive dark-green design</span></li>
+          <li>
+            <span class="update-badge fixed">FIXED</span>
+            Fixed an issue where the status cards displayed incorrectly.
+          </li>
         </ul>
 
         <div class="dev-notes">
           <strong>Developer Notes</strong>
-          <p>This was the first public version of the Motion Services website.</p>
+          <p>
+            We fixed the layout, spacing, and status colors for the website
+            status cards.
+          </p>
         </div>
       </article>
-    </div>
 
-    <div class="empty" id="emptyUpdates">No changelog entries matched your search.</div>
+      <!-- VERSION 2.1.0 -->
+      <article
+        class="release-card"
+        data-search="2.1.0 july 16 2026 dynamic bot status"
+        data-type="new fixed improved"
+      >
+        <div class="release-top">
+          <div>
+            <span class="release-version">Version 2.1.0</span>
+            <h3>Dynamic Bot Status</h3>
+          </div>
+
+          <span class="release-date">July 16, 2026</span>
+        </div>
+
+        <ul class="update-list">
+          <li>
+            <span class="update-badge new">NEW</span>
+            Added a dynamic Discord bot status indicator.
+          </li>
+
+          <li>
+            <span class="update-badge improved">IMPROVED</span>
+            Added online, offline, maintenance, and starting status colors.
+          </li>
+
+          <li>
+            <span class="update-badge fixed">FIXED</span>
+            Fixed status text alignment and card spacing.
+          </li>
+        </ul>
+
+        <div class="dev-notes">
+          <strong>Developer Notes</strong>
+          <p>
+            The website can now display the current status of the Motion
+            Services Discord bot.
+          </p>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
-
 
 <section class="section" id="roadmap">
   <div class="wrap">
